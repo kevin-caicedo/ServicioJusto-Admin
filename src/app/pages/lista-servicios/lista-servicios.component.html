@@ -1,0 +1,34 @@
+<div class="m-5">
+  <h1>Lista de servicios</h1>
+  <hr>
+
+  <button type="button" class="btn btn-primary btn-lg" (click)="agregarServicio()">
+    <i class="fa fa-plus"></i>
+    Agregar
+  </button>
+</div>
+
+<div class="card-columns m-5 animated fadeIn">
+  <div class="card">
+    <img src="https://biobrill.co/wp-content/uploads/2018/08/l2.jpg" class="card-img-top" alt="Card image Cap">
+    <div class="card-body">
+      <h5 class="card-title">Aseo general</h5>
+      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
+      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+
+            
+      <button class="btn btn-info btn-lg mr-1 w-50" (click)="actualizaServicio()">
+        <i class="fa fa-gear"></i>
+        Cambiar
+      </button>
+
+      <button class="btn btn-danger btn-lg">
+        <i class="fa fa-trash-o"></i>
+        Borrar
+      </button>
+
+
+
+    </div>
+  </div>
+</div>
