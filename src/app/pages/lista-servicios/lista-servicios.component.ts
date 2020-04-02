@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ServiciosService } from '../../services/servicios.service';
+import { ServicioModel } from '../../models/servicio.model';
 
 @Component({
   selector: 'app-lista-servicios',
@@ -8,10 +10,15 @@ import { Router } from '@angular/router';
 })
 export class ListaServiciosComponent implements OnInit {
 
-  constructor( private router: Router ) { }
+  servicios: ServicioModel[] = [];
+
+  constructor(  private servicioservice: ServiciosService, private router: Router ) { }
 
   ngOnInit() {
+    this.servicioservice.getServicios()
+      .subscribe(resp => this.servicios = resp);
   }
+
 
   actualizaServicio(){
     this.router.navigate(['actualizaServicio/1'])

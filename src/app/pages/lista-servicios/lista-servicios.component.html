@@ -8,13 +8,13 @@
   </button>
 </div>
 
-<div class="card-columns m-5 animated fadeIn">
-  <div class="card">
-    <img src="https://biobrill.co/wp-content/uploads/2018/08/l2.jpg" class="card-img-top" alt="Card image Cap">
+<div class="card-columns m-5 animated fadeIn" >
+  <div class="card" *ngFor="let servicio of servicios">
+    <img [src]="servicio.imagen" class="card-img-top" alt="Card image Cap">
     <div class="card-body">
-      <h5 class="card-title">Aseo general</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+      <h5 class="card-title">{{ servicio.nombreServicio }}</h5>
+      <p class="card-text">{{ servicio.descripcion }}</p>
+      <p class="card-text"><small class="text-muted">{{ servicio.precioMinuto }}</small></p>
 
             
       <button class="btn btn-info btn-lg mr-1 w-50" (click)="actualizaServicio()">
@@ -26,8 +26,6 @@
         <i class="fa fa-trash-o"></i>
         Borrar
       </button>
-
-
 
     </div>
   </div>

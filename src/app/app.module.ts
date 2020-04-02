@@ -23,6 +23,8 @@ import { PqrsComponent } from './pages/pqrs/pqrs.component';
 import { ActualizaServicioComponent } from './pages/actualiza-servicio/actualiza-servicio.component';
 import { AgregarServicioComponent } from './pages/agregar-servicio/agregar-servicio.component';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -47,7 +49,8 @@ import { AgregarServicioComponent } from './pages/agregar-servicio/agregar-servi
     MatToolbarModule,
     MatSidenavModule,
     MatListModule,
-    MatIconModule
+    MatIconModule,
+   
   ],
   providers: [],
   bootstrap: [AppComponent]
