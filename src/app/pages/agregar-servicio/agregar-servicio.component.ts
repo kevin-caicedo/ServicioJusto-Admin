@@ -5,6 +5,7 @@ import { ServiciosService } from '../../services/servicios.service';
 import Swal from 'sweetalert2';
 import { Observable } from 'rxjs';
 import { text } from '@angular/core/src/render3';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -17,9 +18,19 @@ export class AgregarServicioComponent implements OnInit {
   servicio = new ServicioModel();
 
 
-  constructor( private servicioService: ServiciosService ) { }
+  constructor( private servicioService: ServiciosService, private route: ActivatedRoute ) { }
 
   ngOnInit() {
+
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if( id != 'nuevo' ){
+      this.servicioService.getServicio( id )
+        .subscribe((resp: ServicioModel) => {
+          this.servicio = resp;
+          this.servicio.id = id;
+        });
+    }
   }
 
   guardar( form: NgForm ){

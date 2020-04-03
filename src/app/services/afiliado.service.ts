@@ -15,9 +15,9 @@ export class AfiliadoService {
    /**
    * Permite crear obtener los alfiliado
    * @author Kevin Caicedo
-   * @param afiliado 
+   * 
    */
-  getAfiliado(){
+  getAfiliados(){
     return this.http.get(`${ this.url }/Afiliado.json`)
       .pipe(
         map( this.crearArregloAfiliado )
@@ -25,9 +25,9 @@ export class AfiliadoService {
   }
 
   /**
-   * Modifica un objeto servicio a un array para poder recorrerla
+   * Modifica un objeto afiliado a un array para poder recorrerla
    * @author Kevin Caicedo
-   * @param servicio 
+   * @param afiliadoObj 
    */
   private crearArregloAfiliado( afiliadoObj: object){
     
@@ -47,4 +47,37 @@ export class AfiliadoService {
 
     return afiliadoArray;
   }
+
+
+  /**
+   * Obtiene solo un afiliado
+   * @author Kevin Caicedo
+   * @param id 
+   */
+  getAfiliado( id: string){
+    return this.http.get(`${ this.url }/Afiliado/${ id }.json`);
+  }
+
+  borrarAfiliado( id: string ){
+     return this.http.delete(`${ this.url }/Afiliado/${ id }.json`);
+  }
+
+
+  /**
+   * Cuando se acepta candidato, esta pasa a ser Afiliado.
+   * @author Kevin Caicedo
+   * @param afiliado 
+   */
+  cambiaEstado( afiliado: AfiliadoModel ){
+
+    const afiliadoTemp = {
+      ...afiliado
+    };
+
+    delete afiliadoTemp.id;
+    
+    return this.http.put(`${ this.url }/Afiliado/${ afiliado.id }.json`, afiliadoTemp);
+
+  }
+
 }

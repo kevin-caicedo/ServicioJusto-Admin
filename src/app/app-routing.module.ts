@@ -13,21 +13,18 @@ import { InformacionCandidatoComponent } from './pages/informacion-candidato/inf
 import { InformacionClienteComponent } from './pages/informacion-cliente/informacion-cliente.component';
 import { ListaServiciosComponent } from './pages/lista-servicios/lista-servicios.component';
 import { PqrsComponent } from './pages/pqrs/pqrs.component';
-import { ActualizaServicioComponent } from './pages/actualiza-servicio/actualiza-servicio.component';
 import { AgregarServicioComponent } from './pages/agregar-servicio/agregar-servicio.component';
 
 const routes: Routes = [
   { path: 'menu'   , component: MenuComponent },
   { path: 'login'   , component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
-  
   { path: 'home'    , component: HomeComponent, canActivate: [ AuthGuard ] },
   { path: 'listaAfiliado'   , component: ListaClientesComponent },
   { path: 'informacionAfiliado/:id'   , component: InformacionClienteComponent },
   { path: 'informacionCandidato/:id'   , component: InformacionCandidatoComponent },
   { path: 'listaServicios'   , component: ListaServiciosComponent },
-  { path: 'actualizaServicio/:id'   , component: ActualizaServicioComponent },
-  { path: 'agregarServicio'   , component: AgregarServicioComponent },
+  { path: 'agregarServicio/:id'   , component: AgregarServicioComponent },
   { path: 'pqrs'   , component: PqrsComponent },
   { path: '**', redirectTo: 'registro' }
 ];

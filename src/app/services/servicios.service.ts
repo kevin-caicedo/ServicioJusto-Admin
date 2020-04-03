@@ -83,4 +83,14 @@ export class ServiciosService {
 
     return servicioArray;
   }
+
+  getServicio( id: string){
+    return this.http.get(`${ this.url }/Servicio/${ id }.json`);
+  }
+
+  borrarServicio( id: string ){
+
+    return this.http.delete(`${ this.url }/Servicio/${ id }.json`)
+
+  }
 }

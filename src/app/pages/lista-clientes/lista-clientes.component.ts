@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AfiliadoModel } from '../../models/afiliado.model';
+import { AfiliadoService } from '../../services/afiliado.service';
 
 
 @Component({
@@ -9,13 +11,12 @@ import { Router } from '@angular/router';
 })
 export class ListaClientesComponent implements OnInit {
 
-  constructor(  private router: Router ) { }
+  afiliados: AfiliadoModel[] = [];
+
+  constructor(  private router: Router, private afiliadoService: AfiliadoService ) { }
 
   ngOnInit() {
+    this.afiliadoService.getAfiliados()
+    .subscribe(resp => this.afiliados = resp);
   }
-
-  verAfiliado(){
-    this.router.navigate(['informacionAfiliado/1'])
-  }
-
 }

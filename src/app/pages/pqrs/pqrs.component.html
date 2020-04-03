@@ -3,40 +3,30 @@
   <hr>
 </div>
 
-<table class="table m-4 animated fadeIn">
+<table class="table m-4  animated fadeIn">
   <thead class="thead-dark">
     <tr>
       <th scope="col">Nombre</th>
       <th scope="col">Apellido</th>
       <th scope="col">Tipo</th>
       <th scope="col">Mensaje</th>
+      <th scope="col">Herramienta</th>
     </tr>
   </thead>
-  <tbody>
-    <tr>
-      <th scope="row">Hernan</th>
-      <td>Mark</td>
-      <td><span class="badge badge-primary">Peticion</span></td>
-      <td>Me gustaría que agregaran un nuevo servicio como contaduría</td>
-    </tr>
-    <tr>
-      <th scope="row">John</th>
-      <td>Jacob</td>
-      <td><span class="badge badge-danger">Queja</span></td>
-      <td>Solicite un servicio y lamentablemente nadie llegó</td>
-    </tr>
-    <tr>
-      <th scope="row">Jhair</th>
-      <td>Larry</td>
-      <td><span class="badge badge-info">Sugerencia</span></td>
-      <td>Les aconsejaría que tomen medidas inmediatas de seguridad</td>
-    </tr>
 
-    <tr>
-      <th scope="row">Jhair</th>
-      <td>Larry</td>
-      <td><span class="badge badge-warning">Reclamo</span></td>
-      <td>Les aconsejaría que tomen medidas inmediatas de seguridad</td>
+  <tbody>
+    <tr *ngFor="let pqrs of pqrss; let i of index">
+      <th>{{ pqrs.nombre }}</th>
+      <td>{{ pqrs.apellido }}</td>
+      <td>{{ pqrs.tipo }}</td>
+      <td>{{ pqrs.mensaje }}</td>
+      <td>
+        <button class="btn btn-danger"
+                (click)="borrarPqrs( pqrs, i )">
+          <i class="fa fa-trash-o"></i>
+        </button>
+      </td>
+      
     </tr>
   
   </tbody>

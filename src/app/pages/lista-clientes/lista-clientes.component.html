@@ -3,22 +3,28 @@
   <hr>
 </div>
 
-<div class="card-columns m-5 animated fadeIn">
-  <div class="card">
-    <img src="https://media-exp1.licdn.com/dms/image/C4E03AQGDc8IKjAyTgA/profile-displayphoto-shrink_800_800/0?e=1590624000&v=beta&t=yfSbpTIj3T6KibvF5j5Xwm8MR_jrmSk-NCUR1WHtKss" class="card-img-top" alt="Card image Cap">
+<div class="card-columns m-5 animated fadeIn" *ngFor="let afiliado of afiliados" >
+  <div class="card" *ngIf="afiliado.estado">
+    <img [src]="afiliado.fotoPerfil" class="card-img-top" alt="Card image Cap">
     <div class="card-body">
-      <h5 class="card-title">Card title</h5>
-      <p class="card-text">This card has supporting text below as a natural lead-in to additional content.</p>
-      <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-
-      <button type="button" class="btn btn-primary btn-lg w-50 mr-1" (click)="verAfiliado()">Ver más...</button>
-
-      <button class="btn btn-danger btn-lg">
-        <i class="fa fa-trash-o"></i>
-        Borrar
+      <h5 class="card-title">{{ afiliado.Nombre }} {{ afiliado.Apellido }}</h5>
+      <p class="card-text">{{ afiliado.Correo }}</p>      
+      <p class="card-text">
+        <small class="text-muted">
+          <i class="fa fa-star"></i>
+          {{ afiliado.Calificacion }}
+        </small>
+      </p>
+      
+      <button  type="button" class="btn btn-primary btn-block"
+               [routerLink]="['/informacionAfiliado', afiliado.id]">
+        Ver más...
       </button>
 
     </div>
   </div>
-  
 </div>
+
+
+
+

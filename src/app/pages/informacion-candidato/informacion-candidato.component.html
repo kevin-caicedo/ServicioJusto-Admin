@@ -1,10 +1,10 @@
 <div class="container main-container animated fadeIn fast">
 
-  <h1>Hernán Ramirez</h1>
+  <h1>Candidato <small>{{ afiliado.Nombre }} {{ afiliado.Apellido }}</small></h1>
 
   <div class="row">
     <div class="col-md-5">
-      <img src="https://yt3.ggpht.com/a/AGF-l78-5O1-eDqTfBHLroB2ToED4dXqgtO0dPHXYg=s900-c-k-c0xffffffff-no-rj-mo" alt="Card image Cap"
+      <img [src]="afiliado.fotoPerfil" alt="Card image Cap"
             class="img-thumbnail img-fluid">
     </div>
 
@@ -20,29 +20,36 @@
         </div>
       </div>
 
-      <h3>Quién soy</h3>
+      <h3>Datos personales</h3>
       <hr>
-      <p class="text-justify">
-        Soy una persona inteligente, orientación al servicio, me gusta apoyar a la gente
-      </p>
-
-      <h4>Datos personales</h4>
-      <p>
-        Dirección: asdfasdfasdf
-      </p>
       <p>
         <i class="fa fa-phone"></i>
+        {{ afiliado.Telefono }}
       </p>
       <p>
-        Calificación: <span class="badge badge-info">4.57</span>
+        <i class="fa fa-birthday-cake"></i>
+        {{ afiliado.FechaNacimiento }}
+      </p>
+      <p>
+        <i class="fa fa-map-marker"></i>
+        {{ afiliado.Direccion }}
+      </p>
+      <p>
+        <i class="fa fa-id-card-o"></i>
+        {{ afiliado.Correo }}
       </p>
 
-      <button class="btn btn-outline-success w-50" type="submit">
+      <h4>Areas de conocimiento</h4>
+      <p>
+        <span class="badge badge-info">{{ afiliado.Habilidad }}</span>
+      </p>
+
+      <button class="btn btn-outline-success w-50" type="submit" (click)="actualizarCandidato( afiliado )">
         <i class="fa fa-check"></i>
         Aceptar
       </button>
 
-      <button class="btn btn-outline-danger w-50" type="submit">
+      <button class="btn btn-outline-danger w-50" type="submit" (click)="borrarCandidato( afiliado )">
         <i class="fa fa-remove"></i>
         Rechazar
       </button>

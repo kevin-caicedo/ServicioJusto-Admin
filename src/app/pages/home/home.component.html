@@ -10,7 +10,10 @@
       <h5 class="card-title">{{ afiliado.Nombre }} {{ afiliado.Apellido }}</h5>
       <p class="card-text">{{ afiliado.Correo }}</p>      
       
-      <button type="button" class="btn btn-primary btn-block" (click)="verCandidato()">Ver más...</button>
+      <button type="button" class="btn btn-primary btn-block" 
+              [routerLink]="['/informacionCandidato', afiliado.id]">
+        Ver más...
+      </button>
 
     </div>
   </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiciosService } from '../../services/servicios.service';
 
 @Component({
   selector: 'app-actualiza-servicio',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ActualizaServicioComponent implements OnInit {
 
-  constructor() { }
 
-  ngOnInit() {
+
+  constructor(  ) { }
+
+  ngOnInit(  ) {
   }
 
 }
