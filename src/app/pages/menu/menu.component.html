@@ -1,9 +1,11 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar style="color: #827ffe;" class="example-toolbar">
-    <!-- Tener en cuenta que la aplicación vea en que página está si es inicio sesión o ya ingresó -->
-    <button mat-icon-button (click)="snav.toggle()">
+    <button mat-icon-button (click)="snav.toggle()" *ngIf="auth.cambiaMostrarMenu">
       <mat-icon>menu</mat-icon>
     </button>
+    <a class="navbar-brand ml-3">
+      <img src="../../../assets/images/icons/servicio.jpg" width="40" height="40" class="d-inline-block align-top" alt="">
+    </a>
     <h1 class="example-app-name">Servicio Justo</h1>
   </mat-toolbar>
 

@@ -11,9 +11,6 @@ import { AuthService } from '../../services/auth.service';
 export class MenuComponent implements OnInit {
   mobileQuery: MediaQueryList;
 
-  //Variable que va a controlar el menu si está o no logueado
-  muestraMenu: boolean;
-
   navegacion = [
     { name: "Lista de candidatos", route: "/home" },
     { name: "Lista de afiliados", route: "/listaAfiliado" },
@@ -26,7 +23,7 @@ export class MenuComponent implements OnInit {
   private _mobileQueryListener: () => void;
 
   constructor(changeDetectorRef: ChangeDetectorRef,
-    media: MediaMatcher, private router: Router, private auth: AuthService
+    media: MediaMatcher, private router: Router, public auth: AuthService
   ) {
 
     this.mobileQuery = media.matchMedia('(max-width: 600px)');
@@ -35,8 +32,7 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.muestraMenu = this.auth.estaAutenticado();
-
+    
   }
 
   ngOnDestroy(): void {
@@ -45,7 +41,6 @@ export class MenuComponent implements OnInit {
 
   cerrarSesion(){
     this.auth.logout();
-    this.muestraMenu = false;
     this.router.navigateByUrl('/login');
   }
 }

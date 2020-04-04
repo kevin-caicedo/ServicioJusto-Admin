@@ -16,16 +16,15 @@ import { PqrsComponent } from './pages/pqrs/pqrs.component';
 import { AgregarServicioComponent } from './pages/agregar-servicio/agregar-servicio.component';
 
 const routes: Routes = [
-  { path: 'menu'   , component: MenuComponent },
   { path: 'login'   , component: LoginComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'home'    , component: HomeComponent, canActivate: [ AuthGuard ] },
-  { path: 'listaAfiliado'   , component: ListaClientesComponent },
-  { path: 'informacionAfiliado/:id'   , component: InformacionClienteComponent },
-  { path: 'informacionCandidato/:id'   , component: InformacionCandidatoComponent },
-  { path: 'listaServicios'   , component: ListaServiciosComponent },
-  { path: 'agregarServicio/:id'   , component: AgregarServicioComponent },
-  { path: 'pqrs'   , component: PqrsComponent },
+  { path: 'listaAfiliado'   , component: ListaClientesComponent, canActivate: [ AuthGuard ]   },
+  { path: 'informacionAfiliado/:id'   , component: InformacionClienteComponent, canActivate: [ AuthGuard ]  },
+  { path: 'informacionCandidato/:id'   , component: InformacionCandidatoComponent, canActivate: [ AuthGuard ]  },
+  { path: 'listaServicios'   , component: ListaServiciosComponent, canActivate: [ AuthGuard ]  },
+  { path: 'agregarServicio/:id'   , component: AgregarServicioComponent, canActivate: [ AuthGuard ]  },
+  { path: 'pqrs'   , component: PqrsComponent, canActivate: [ AuthGuard ]  },
   { path: '**', redirectTo: 'registro' }
 ];
 

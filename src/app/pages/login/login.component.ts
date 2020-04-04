@@ -4,6 +4,7 @@ import { NgForm } from '@angular/forms';
 import { AdministradorModel } from '../../models/administrador.model';
 import { AuthService } from '../../services/auth.service';
 import Swal from 'sweetalert2';
+import { MenuComponent } from '../menu/menu.component';
 
 @Component({
   selector: 'app-login',
@@ -13,8 +14,9 @@ import Swal from 'sweetalert2';
 export class LoginComponent implements OnInit {
 
   admin: AdministradorModel = new AdministradorModel();
+  
   recordarme = false;
-
+  
   constructor(private auth: AuthService,
     private router: Router) { }
 
@@ -49,7 +51,10 @@ export class LoginComponent implements OnInit {
         localStorage.removeItem('email');
       }
 
+      this.auth.cambiaMostrarMenu = true;
+
       this.router.navigateByUrl('/home');
+
     }, (err)=>{
       console.log(err.error.error.message);
       Swal.fire({
