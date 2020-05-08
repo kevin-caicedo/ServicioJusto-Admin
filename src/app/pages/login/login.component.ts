@@ -51,9 +51,9 @@ export class LoginComponent implements OnInit {
         localStorage.removeItem('email');
       }
 
-      this.auth.cambiaMostrarMenu = true;
-
       this.router.navigateByUrl('/home');
+      
+      setTimeout(()=>location.reload(),1000);
 
     }, (err)=>{
       console.log(err.error.error.message);

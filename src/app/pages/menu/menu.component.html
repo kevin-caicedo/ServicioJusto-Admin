@@ -1,6 +1,6 @@
 <div class="example-container" [class.example-is-mobile]="mobileQuery.matches">
   <mat-toolbar style="color: #827ffe;" class="example-toolbar">
-    <button mat-icon-button (click)="snav.toggle()" *ngIf="auth.cambiaMostrarMenu">
+    <button mat-icon-button (click)="snav.toggle()" *ngIf="visible">
       <mat-icon>menu</mat-icon>
     </button>
     <a class="navbar-brand ml-3">

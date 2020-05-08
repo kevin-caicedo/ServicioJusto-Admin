@@ -17,7 +17,12 @@ export class PqrsComponent implements OnInit {
 
   ngOnInit() {
     this.pqrsService.getPqrs()
-      .subscribe(resp => this.pqrss = resp);
+      .subscribe(resp => {
+        this.pqrss = resp
+
+        
+
+      });
   }
 
   borrarPqrs( pqrs: PqrsModel, i: number ){

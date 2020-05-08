@@ -1,5 +1,5 @@
 <div class="m-5">
-  <h1>PQRS</h1>
+  <h1>PQRS y comentarios</h1>
   <hr>
 </div>
 
@@ -14,8 +14,8 @@
     </tr>
   </thead>
 
-  <tbody>
-    <tr *ngFor="let pqrs of pqrss; let i of index">
+  <tbody *ngFor="let pqrs of pqrss; let i of index">
+    <tr *ngIf="pqrs.nombre">
       <th>{{ pqrs.nombre }}</th>
       <td>{{ pqrs.apellido }}</td>
       <td>{{ pqrs.tipo }}</td>
@@ -30,4 +30,33 @@
     </tr>
   
   </tbody>
+
+  
+
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Quien</th>
+      <th scope="col">Celular Usuario/afiliado</th>
+      <th scope="col">Mensaje</th>
+      <th scope="col">Herramienta</th>
+    </tr>
+  </thead>
+
+  
+  <tbody *ngFor="let pqrs of pqrss; let i of index">
+    <tr *ngIf="!pqrs.nombre">
+      <td>Comentario de</td>
+      <td> {{ pqrs.quien }} </td>
+      <td> Número </td>
+      <td> {{ pqrs.mensaje }} </td>
+      <td> 
+        <button class="btn btn-danger"
+                (click)="borrarPqrs( pqrs, i )">
+          <i class="fa fa-trash-o"></i>
+        </button>
+      </td>
+    </tr>
+  </tbody>
+
 </table>

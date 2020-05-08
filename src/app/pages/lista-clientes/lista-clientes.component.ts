@@ -12,6 +12,7 @@ import { AfiliadoService } from '../../services/afiliado.service';
 export class ListaClientesComponent implements OnInit {
 
   afiliados: AfiliadoModel[] = [];
+  calificacion: number;
 
   constructor(  private router: Router, private afiliadoService: AfiliadoService ) { }
 

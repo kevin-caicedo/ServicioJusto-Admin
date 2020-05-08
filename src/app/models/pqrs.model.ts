@@ -5,5 +5,7 @@ export class PqrsModel{
     apellido: string;
     tipo: string;
     mensaje: string;
-    
+    quien: string;
+    idPeticion: string;
+    estado: boolean;
 }

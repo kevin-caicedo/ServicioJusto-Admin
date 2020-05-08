@@ -28,12 +28,12 @@
 
       <p>
         <i class="fa fa-star"></i>
-        {{ afiliado.Calificacion }}
+        {{ afiliado.Calificacion | number }}
       </p>
 
       <p>
         <i class="fa fa-birthday-cake"></i>
-        {{ afiliado.FechaNacimiento }}
+        {{ afiliado.FechaNacimiento | date }}
       </p>
       <p>
         <i class="fa fa-map-marker"></i>
@@ -41,7 +41,7 @@
       </p>
       <p>
         <i class="fa fa-id-card-o"></i>
-        {{ afiliado.Correo }}
+        {{ afiliado.Cedula }}
       </p>
 
       <h4>Areas de conocimiento</h4>

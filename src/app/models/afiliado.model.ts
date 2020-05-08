@@ -3,6 +3,7 @@
 export class AfiliadoModel {
 
     id: string; 
+    Cedula: string;
     Correo: string;
     Contrasena: string;
     Nombre: string;
@@ -11,7 +12,7 @@ export class AfiliadoModel {
     Direccion: string;
     Habilidad: string;
     Telefono: string;
-    Calificacion: number;
+    Calificacion: any;
     fotoPerfil: string;
     estado: boolean;
 }

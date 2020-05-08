@@ -22,6 +22,7 @@ export class InformacionClienteComponent implements OnInit {
     this.afiliadoService.getAfiliado( id )
       .subscribe((resp: AfiliadoModel) => {
         this.afiliado = resp;
+        this.afiliado.Calificacion = resp['Calificacion'].valor;
         this.afiliado.id = id;
       });
   }
@@ -45,8 +46,6 @@ export class InformacionClienteComponent implements OnInit {
               icon: 'success'
             });
           });
-
-
         setTimeout(() => this.router.navigate(['listaAfiliado']), 1500);
       }
     });

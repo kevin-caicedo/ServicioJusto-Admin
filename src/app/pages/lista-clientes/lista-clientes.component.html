@@ -3,29 +3,6 @@
   <hr>
 </div>
 
-
-<!-- <div class="card-columns m-5 animated fadeIn" *ngFor="let afiliado of afiliados">
-  <div class="card" *ngIf="afiliado.estado">
-    <img [src]="afiliado.fotoPerfil" class="card-img-top img-fluid" alt="Card image Cap">
-    <div class="card-body">
-      <h5 class="card-title">{{ afiliado.Nombre }} {{ afiliado.Apellido }}</h5>
-      <p class="card-text">{{ afiliado.Correo }}</p>      
-      <p class="card-text">
-        <small class="text-muted">
-          <i class="fa fa-star"></i>
-          {{ afiliado.Calificacion }}
-        </small>
-      </p>
-      
-      <button  type="button" class="btn btn-primary btn-block"
-               [routerLink]="['/informacionAfiliado', afiliado.id]">
-        Ver más...
-      </button>
-
-    </div>
-  </div>
-</div> -->
-
 <div class="card-columns m-5 animated fadeIn">
   <div class="card" *ngFor="let afiliado of afiliados">
     <figure *ngIf="afiliado.estado">
@@ -36,7 +13,7 @@
         <p class="card-text">
           <small class="text-muted">
             <i class="fa fa-star"></i>
-            {{ afiliado.Calificacion }}
+            {{ afiliado.Calificacion.valor |  number }}
           </small>
         </p>
   

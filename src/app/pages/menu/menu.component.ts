@@ -10,6 +10,7 @@ import { AuthService } from '../../services/auth.service';
 })
 export class MenuComponent implements OnInit {
   mobileQuery: MediaQueryList;
+  visible: boolean = false;
 
   navegacion = [
     { name: "Lista de candidatos", route: "/home" },
@@ -32,6 +33,12 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit() {
+    
+    if( this.auth.estaAutenticado() ){
+      this.visible = true;
+    }else{
+      this.visible = false;
+    }    
     
   }
 
