@@ -14,7 +14,7 @@
     </tr>
   </thead>
 
-  <tbody *ngFor="let pqrs of pqrss; let i of index">
+  <tbody *ngFor="let pqrs of pqrss; let i = index">
     <tr *ngIf="pqrs.nombre">
       <th>{{ pqrs.nombre }}</th>
       <td>{{ pqrs.apellido }}</td>
@@ -31,24 +31,34 @@
   
   </tbody>
 
-  
+</table>
+
+<table class="table m-4  animated fadeIn">
 
   <thead class="thead-dark">
     <tr>
-      <th scope="col">#</th>
       <th scope="col">Quien</th>
-      <th scope="col">Celular Usuario/afiliado</th>
+      <th scope="col">Rol</th>
+      <th scope="col">Para quien</th>
+      <th scope="col">Rol</th>
       <th scope="col">Mensaje</th>
       <th scope="col">Herramienta</th>
     </tr>
   </thead>
 
   
-  <tbody *ngFor="let pqrs of pqrss; let i of index">
-    <tr *ngIf="!pqrs.nombre">
-      <td>Comentario de</td>
+  <tbody *ngFor="let pqrs of pqrss; let i = index">
+    <tr *ngIf="pqrs.nombreUsuario">
+      <th *ngIf="pqrs.quien == 'afiliado'">{{ pqrs.nombreAfiliado }}</th>
+      <th *ngIf="pqrs.quien == 'usuario'"> {{ pqrs.nombreUsuario }} </th>
+      
       <td> {{ pqrs.quien }} </td>
-      <td> Número </td>
+
+      <td *ngIf="pqrs.quien == 'afiliado'"> {{ pqrs.nombreUsuario }} </td>
+      <td *ngIf="pqrs.quien == 'usuario'"> {{ pqrs.nombreAfiliado }} </td>
+
+      <td *ngIf="pqrs.quien == 'afiliado'"> usuario </td>
+      <td *ngIf="pqrs.quien == 'usuario'"> afiliado </td>
       <td> {{ pqrs.mensaje }} </td>
       <td> 
         <button class="btn btn-danger"

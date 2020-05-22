@@ -12,16 +12,12 @@ export class PqrsComponent implements OnInit {
 
   pqrss: PqrsModel[] = [];
 
-
   constructor( private pqrsService: PqrsService ) { }
 
   ngOnInit() {
     this.pqrsService.getPqrs()
       .subscribe(resp => {
         this.pqrss = resp
-
-        
-
       });
   }
 
