@@ -28,7 +28,7 @@
       </p>
       <p>
         <i class="fa fa-birthday-cake"></i>
-        {{ afiliado.FechaNacimiento }}
+        {{ afiliado.FechaNacimiento | date }}
       </p>
       <p>
         <i class="fa fa-map-marker"></i>
@@ -41,7 +41,7 @@
 
       <h4>Areas de conocimiento</h4>
       <p>
-        <span class="badge badge-info">{{ afiliado.Habilidad }}</span>
+        <span class="badge badge-info" *ngFor="let item of afiliado.Habilidad">{{ item }}</span>
       </p>
 
       <button class="btn btn-outline-success w-50" type="submit" (click)="actualizarCandidato( afiliado )">
